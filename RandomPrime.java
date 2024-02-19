@@ -22,7 +22,7 @@ class RandomPrime {
             random_7_digit_number += System.nanoTime() % 10;
         }
 
-        return (long) (Long.parseLong(random_7_digit_number));
+        return Long.parseLong(random_7_digit_number);
     }
 
     // Function to check and update count of prime and non prime numbers using approach one
@@ -50,7 +50,7 @@ class RandomPrime {
     // Function to check prime number
     private static boolean isPrimeApproach1(long number) {
         for (int i = 2; i < 10; i++) {
-            if ((number % i) == 0 && number != i) {
+            if (number % i == 0) {
                 return false;
             }
         }
@@ -58,10 +58,13 @@ class RandomPrime {
     }
 
     private static boolean isPrimeApproach2(long number) {
-        for (int i = 2; i <= number / 2; i++)
-            if (number % i == 0) {
-                return false;
+        for (int i = 2; i < 10; i++) {
+            if (number % i != 0) {
+                continue;
+            }else{
+            	return false;
             }
+        }
         return true;
     }
 
