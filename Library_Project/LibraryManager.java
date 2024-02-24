@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class LibraryManager {
         static Book storedBook[] = new Book[50];
+        static Student students[] = new Student[100];
         private static int bookCount = 0;
 
     public static void addBook(int serialNumber, String bookName, String author, int quantity) {
