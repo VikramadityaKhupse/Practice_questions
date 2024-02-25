@@ -26,22 +26,27 @@ public class Librarian extends User {
                 registerStudent();
                 break;
             case 3:
-                // Implement according to your logic
+                studentList();
+                
                 break;
             case 4:
-                // Implement according to your logic
+                assignBook();
+                
                 break;
             case 5:
-                // Implement according to your logic
+                submitBook();
+
+                
                 break;
             case 6:
-                // Implement according to your logic
+                renewBook();
+                
                 break;
             case 7:
                 LibraryManager.displayBooks();
                 break;
             case 8:
-                // Implement according to your logic
+                Library.main(null);
                 break;
             case 0:
                 System.exit(0);
@@ -70,6 +75,50 @@ public class Librarian extends User {
     }
 
     public static void registerStudent() {
-        // Implement according to your logic
+        System.out.println("Please enter student's SGGS id:");
+        String studentId = sc.nextLine();
+        Student student = new Student(studentId);
+        LibraryManager.addStudent(student);
+    }
+
+    public void assignBook() {
+        
+        System.out.println("Please enter student's SGGS id:");
+        String studentId = sc.nextLine();
+        System.out.println("Enter the serial number of the book to assign:");
+        long serialNumber = sc.nextLong();
+        Book book = LibraryManager.findBookBySerial(serialNumber);
+        
+        for(Student student : LibraryManager.students){
+
+            if(student.userId == studentId){
+                student.addBookToList(book);
+            }
+        }
+    }
+
+    public void studentList(){
+
+        for(Student student : LibraryManager.students){
+
+            System.out.println("\n"+student.userId);
+        }
+    }
+
+    public void submitBook(){
+        System.out.println("Please enter student's SGGS id:");
+        String studentId = sc.nextLine();
+        System.out.println("Enter the serial number of the book to submit:");
+        long serialNumber = sc.nextLong();
+
+        for(Student student : LibraryManager.students){
+
+            if(student.userId == studentId){
+                student.submitBook(serialNumber);
+            }else{
+                System.out.println("Student not found! or Invalid student ID");
+            }
+        }
+
     }
 }

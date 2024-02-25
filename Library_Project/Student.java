@@ -8,6 +8,7 @@ public class Student extends User {
 
     public Student(String userId) {
         super(userId);
+        LibraryManager.addStudent(this);
     }
 
     public void studentOptions() {
@@ -21,7 +22,7 @@ public class Student extends User {
     private void executeOperation(int choice) {
         switch (choice) {
             case 1:
-                assignBook();
+                takeBook();
                 break;
             case 2:
                 LibraryManager.displayBooks();
@@ -30,7 +31,9 @@ public class Student extends User {
                 displayBooksTaken(tookBook);
                 break;
             case 4:
-                submitBook();
+                System.out.println("Enter book serial number to submit: ");
+                long choice2 = sc.nextInt();
+                submitBook(choice2);
                 break;
             case 5:
                 renewBook();
@@ -41,6 +44,7 @@ public class Student extends User {
                 LibraryManager.displayBooks();
                 break;
             case 8:
+                Library.main(null);
                 break;
             case 0:
                 System.exit(0);
@@ -59,6 +63,61 @@ public class Student extends User {
             }
         }
     }
+    public void addBookToList(Book book) {
+        for (int i = 0; i < tookBook.length; i++) {
+            if (tookBook[i] == null) {
+                
+                if (!bookExistsInList(book)) {
+                    tookBook[i] = book;
+                    System.out.println("Book added successfully to your list.");
+                    return;
+                } else {
+                    System.out.println("You already have this book in your list.");
+                    return;
+                }
+            }
+        }
+        System.out.println("Sorry, you cannot add more books. Your list is full.");
+    }
+
+    private boolean bookExistsInList(Book book) {
+        for (Book existingBook : tookBook) {
+            if (existingBook != null && existingBook.serialNumber == book.serialNumber) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+    public void takeBook() {
+        
+    System.out.println("Enter the serial number of the book you want to take:");
+    long serialNumber = sc.nextLong();
+    Book book = LibraryManager.findBookBySerial(serialNumber);
+    if (book != null) {
+        addBookToList(book);
+    } else {
+        System.out.println("Book with serial number " + serialNumber + " not found.");
+    }
+    }
+
+    public void submitBook(long serialNumber) {
+        for (int i = 0; i < tookBook.length; i++) {
+            if (tookBook[i] != null && tookBook[i].serialNumber == serialNumber) {
+                // Found the book in the student's list
+                Book submittedBook = tookBook[i];
+                tookBook[i] = null; // Remove the book from the student's list
+                System.out.println("Book submitted successfully.");
+                LibraryManager.increaseBookCount(submittedBook); // Increase the book count in LibraryManager's list
+                return;
+            }
+        }
+        System.out.println("Book with serial number " + serialNumber + " not found in your list.");
+    }
+
+    
 
     
 }
