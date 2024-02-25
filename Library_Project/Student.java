@@ -6,11 +6,13 @@ public class Student extends User {
     static Book[] tookBook = new Book[5];
     static Scanner sc = new Scanner(System.in);
 
+    //comctructor for student object
     public Student(String userId) {
         super(userId);
         LibraryManager.addStudent(this);
     }
 
+    //Function to show all available student options
     public void studentOptions() {
         while (true) {
             System.out.println("1)Take a book\n2)Show available books\n3)Show taken books\n4)Return a book\n5)Renew a book\n8)Change user\n Press 0 to exit:");
@@ -18,7 +20,8 @@ public class Student extends User {
             executeOperation(choice);
         }
     }
-
+    
+    //Function to execute student's operations
     private void executeOperation(int choice) {
         switch (choice) {
             case 1:
@@ -55,6 +58,7 @@ public class Student extends User {
         }
     }
 
+    //Function to display books taken by students
     private void displayBooksTaken(Book[] tookBook) {
         System.out.println("Books taken by user " + userId + ":");
         for (Book book : tookBook) {
@@ -63,6 +67,21 @@ public class Student extends User {
             }
         }
     }
+
+    //Function to take a book
+    public void takeBook() {
+        
+        System.out.println("Enter the serial number of the book you want to take:");
+        long serialNumber = sc.nextLong();
+        Book book = LibraryManager.findBookBySerial(serialNumber);
+        if (book != null) {
+            addBookToList(book);
+        } else {
+            System.out.println("Book with serial number " + serialNumber + " not found.");
+        }
+        }
+
+    //Function to add a book in students taken book list
     public void addBookToList(Book book) {
         for (int i = 0; i < tookBook.length; i++) {
             if (tookBook[i] == null) {
@@ -80,6 +99,7 @@ public class Student extends User {
         System.out.println("Sorry, you cannot add more books. Your list is full.");
     }
 
+    //Function to check if the book already exists in list
     private boolean bookExistsInList(Book book) {
         for (Book existingBook : tookBook) {
             if (existingBook != null && existingBook.serialNumber == book.serialNumber) {
@@ -91,18 +111,7 @@ public class Student extends User {
 
 
 
-    public void takeBook() {
-        
-    System.out.println("Enter the serial number of the book you want to take:");
-    long serialNumber = sc.nextLong();
-    Book book = LibraryManager.findBookBySerial(serialNumber);
-    if (book != null) {
-        addBookToList(book);
-    } else {
-        System.out.println("Book with serial number " + serialNumber + " not found.");
-    }
-    }
-
+    //Function to submit a book in library
     public void submitBook(long serialNumber) {
         for (int i = 0; i < tookBook.length; i++) {
             if (tookBook[i] != null && tookBook[i].serialNumber == serialNumber) {

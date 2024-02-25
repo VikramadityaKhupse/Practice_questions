@@ -1,5 +1,5 @@
 package Library_Project;
-
+//Book class for a book object
 public class Book {
     public long serialNumber;
     public String bookName;

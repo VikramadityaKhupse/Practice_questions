@@ -5,10 +5,12 @@ import java.util.Scanner;
 public class Librarian extends User {
     static Scanner sc = new Scanner(System.in);
 
+    //COnstructor for librarian class
     public Librarian(String userId) {
         super(userId);
     }
 
+    //Function to show all available options for a librarian
     public void librarianOptions() {
         while (true) {
             System.out.println("1)Add a book\n2)Register a student\n3)See students list\n4)Assign a book\n5)Submit a book\n6)Renew a book\n7)Show all books\n8)Change user\n Press 0 to exit:");
@@ -16,7 +18,8 @@ public class Librarian extends User {
             executeOperation(choice);
         }
     }
-
+    
+    //Functioon to execute operation selected by the user
     private void executeOperation(int choice) {
         switch (choice) {
             case 1:
@@ -57,6 +60,7 @@ public class Librarian extends User {
         }
     }
 
+    //Function to take book details and add that book to library
     private static void getBookDetails() {
         Scanner sc = new Scanner(System.in);
 
@@ -74,6 +78,7 @@ public class Librarian extends User {
         System.out.println("Book added successfully: " + bookName + ", Quantity: " + quantity);
     }
 
+    //Function to add a new student in Library student list
     public static void registerStudent() {
         System.out.println("Please enter student's SGGS id:");
         String studentId = sc.nextLine();
@@ -81,6 +86,7 @@ public class Librarian extends User {
         LibraryManager.addStudent(student);
     }
 
+    //Function to assign a book to a student
     public void assignBook() {
         
         System.out.println("Please enter student's SGGS id:");
@@ -97,6 +103,7 @@ public class Librarian extends User {
         }
     }
 
+    //Function to display registered students list
     public void studentList(){
 
         for(Student student : LibraryManager.students){
@@ -104,7 +111,8 @@ public class Librarian extends User {
             System.out.println("\n"+student.userId);
         }
     }
-
+    
+    //Function to submit a book from student
     public void submitBook(){
         System.out.println("Please enter student's SGGS id:");
         String studentId = sc.nextLine();

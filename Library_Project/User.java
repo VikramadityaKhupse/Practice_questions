@@ -1,5 +1,5 @@
 package Library_Project;
-
+//User class for user object
 public class User {
 
     protected String userId;
