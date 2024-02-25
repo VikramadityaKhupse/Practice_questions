@@ -2,6 +2,8 @@ package Library_Project;
 import java.util.Scanner;
 
 public class Library {
+
+    String user;
     public static void main(String[] args) {
         
         userChoice();
@@ -40,6 +42,7 @@ public class Library {
         System.out.println("Are you a User or Librarian?\n1 for Student\n2 for Librarian:");
         int choice = sc.nextInt();
         long studentId, librarianId;
+        
         if(choice == 1){
             System.out.println("Please enter your SGGS student id:");
             studentId = sc.nextLong();

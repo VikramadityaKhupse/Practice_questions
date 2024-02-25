@@ -7,7 +7,7 @@ public class LibraryManager {
         static Student students[] = new Student[100];
         private static int bookCount = 0;
 
-    public static void addBook(int serialNumber, String bookName, String author, int quantity) {
+    public static void addBook(long serialNumber, String bookName, String author, int quantity) {
          Book b1 = new Book(serialNumber, bookName, author, quantity);
          storedBook[bookCount] = b1;
          bookCount++;
