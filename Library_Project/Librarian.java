@@ -97,18 +97,24 @@ public class Librarian extends User {
         String studentId = sc.nextLine();
         System.out.println("Enter the serial number of the book to assign:");
         long serialNumber = sc.nextLong();
+        sc.nextLine();
         
-        for(Student student : LibraryManager.students){
-
-            if(student.userId == studentId){
-                
-                student.addBookToList(LibraryManager.findBookBySerial(serialNumber));
-            }else{
-                System.out.println("Student not found! Please check ID or Register student");
-                break;
+        Student student = LibraryManager.findStudentById(studentId);
+        if (student != null) {
+            // Student found, assign the book
+            Book book = LibraryManager.findBookBySerial(serialNumber);
+            if (book != null) {
+                // Book found, assign it to the student
+                student.addBookToList(book);
+                System.out.println("Book assigned successfully.");
+            } else {
+                System.out.println("Book with serial number " + serialNumber + " not found.");
             }
+        } else {
+            System.out.println("Student with ID " + studentId + " not found.");
         }
     }
+    
 
     //Function to display registered students list
     public void studentList(){
