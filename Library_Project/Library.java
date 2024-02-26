@@ -3,14 +3,18 @@ package Library_Project;
 import java.util.Scanner;
 
 public class Library {
+    
+    
+    
 
     public static void main(String[] args) {
         selectUser();
     }
-
+    
+    
     private static void selectUser() {
         Scanner sc = new Scanner(System.in);
-
+        
         System.out.println("Are you a User or Librarian?\n1 for Student\n2 for Librarian:");
         int choice = sc.nextInt();
         sc.nextLine(); 
@@ -28,5 +32,7 @@ public class Library {
         } else {
             System.out.println("Invalid choice!");
         }
+
+        sc.close();
     }
 }

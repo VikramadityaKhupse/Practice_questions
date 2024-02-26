@@ -13,13 +13,16 @@ public class Librarian extends User {
     //Function to show all available options for a librarian
     public void librarianOptions() {
         while (true) {
-            System.out.println("1)Add a book\n2)Register a student\n3)See students list\n4)Assign a book\n5)Submit a book\n6)Renew a book\n7)Show all books\n8)Change user\n Press 0 to exit:");
+            System.out.println("--------------------------");
+            System.out.println("1)Add a book\n2)Register a student\n3)See students list\n4)Assign a book\n5)Submit a book\n6)Renew a book\n7)Show all books\n8)Change user\nPress 0 to exit:");
+            System.out.println("--------------------------");
             int choice = sc.nextInt();
+            sc.nextLine();
             executeOperation(choice);
         }
     }
     
-    //Functioon to execute operation selected by the user
+    //Function to execute operation selected by the user
     private void executeOperation(int choice) {
         switch (choice) {
             case 1:
@@ -62,7 +65,7 @@ public class Librarian extends User {
 
     //Function to take book details and add that book to library
     private static void getBookDetails() {
-        Scanner sc = new Scanner(System.in);
+        
 
         System.out.println("Enter book name:");
         String bookName = sc.nextLine();
@@ -72,6 +75,7 @@ public class Librarian extends User {
         long serial = sc.nextLong();
         System.out.println("Enter book quantity:");
         int quantity = sc.nextInt();
+        sc.nextLine();
 
         LibraryManager.addBook(serial, bookName, authorName, quantity);
 
@@ -93,12 +97,15 @@ public class Librarian extends User {
         String studentId = sc.nextLine();
         System.out.println("Enter the serial number of the book to assign:");
         long serialNumber = sc.nextLong();
-        Book book = LibraryManager.findBookBySerial(serialNumber);
         
         for(Student student : LibraryManager.students){
 
             if(student.userId == studentId){
-                student.addBookToList(book);
+                
+                student.addBookToList(LibraryManager.findBookBySerial(serialNumber));
+            }else{
+                System.out.println("Student not found! Please check ID or Register student");
+                break;
             }
         }
     }
@@ -108,7 +115,12 @@ public class Librarian extends User {
 
         for(Student student : LibraryManager.students){
 
-            System.out.println("\n"+student.userId);
+            if(student != null){
+                System.out.println("\n"+student.userId);
+            }else{
+                break;
+            }
+            
         }
     }
     

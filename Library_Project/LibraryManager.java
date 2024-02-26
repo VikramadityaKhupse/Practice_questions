@@ -16,7 +16,7 @@ public class LibraryManager {
 
     //Function to display all books available in library
     public static void displayBooks() {
-        System.out.println("Available Books:");
+        System.out.println("\n-----------------------\nAvailable Books:");
         for (Book aBook : storedBooks) {
             if (aBook != null) {
                 System.out.println(aBook.serialNumber + "\t" + aBook.bookName + "\t" + aBook.author + "\t" + aBook.quantity);
@@ -48,6 +48,18 @@ public class LibraryManager {
                 // Found the book in the library's stored books
                 storedBooks.quantity++; // Increase the book count
                 System.out.println("Book count increased successfully.");
+                return;
+            }
+        }
+        System.out.println("Book with serial number " + book.serialNumber + " not found in library's list.");
+    }
+
+    //Function to reduce book count whenever a book is taken2
+    public static void decreaseBookCount(Book book) {
+        for (Book storedBooks : storedBooks) {
+            if (storedBooks != null && storedBooks.serialNumber == book.serialNumber) {
+                // Found the book in the library's stored books
+                storedBooks.quantity--; // decrease the book count
                 return;
             }
         }

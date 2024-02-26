@@ -63,7 +63,7 @@ public class Student extends User {
         System.out.println("Books taken by user " + userId + ":");
         for (Book book : tookBook) {
             if (book != null) {
-                System.out.println(book.serialNumber + "\t" + book.bookName + "\t" + book.author + "\t" + book.quantity);
+                System.out.println(book.serialNumber + "\t" + book.bookName + "\t" + book.author);
             }
         }
     }
@@ -88,6 +88,7 @@ public class Student extends User {
                 
                 if (!bookExistsInList(book)) {
                     tookBook[i] = book;
+                    LibraryManager.decreaseBookCount(book);
                     System.out.println("Book added successfully to your list.");
                     return;
                 } else {
