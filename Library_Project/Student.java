@@ -9,7 +9,7 @@ public class Student extends User {
     //comctructor for student object
     public Student(String userId) {
         super(userId);
-        LibraryManager.addStudent(this);
+        LibraryManager.students.add(this);
     }
 
     //Function to show all available student options

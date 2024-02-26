@@ -21,18 +21,18 @@ public class LibraryManager {
         System.out.println("\n-----------------------\nAvailable Books:");
         for (Book aBook : storedBooks) {
             if (aBook != null) {
-                System.out.println(aBook.serialNumber + "\t" + aBook.bookName + "\t" + aBook.author + "\t" + aBook.quantity);
+                System.out.println("Serial Name" + "\t" + "Name" + "\t" + "Author" + "\t" + "Quantity");
                 System.out.println(aBook.serialNumber + "\t" + aBook.bookName + "\t" + aBook.author + "\t" + aBook.quantity);
             }
         }
     }
     
     //Function to add a student in student's list
-    public static void addStudent(Student student) {
-        students.add(student);
+    // public static void addStudent(Student student) {
+    //     students.add(student);
         
-        // studentCount++;
-    }
+    //     // studentCount++;
+    // }
     
     //Function to find a book by its serial number
     public static Book findBookBySerial(long serialNumber) {

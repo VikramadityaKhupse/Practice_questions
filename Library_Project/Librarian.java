@@ -32,7 +32,7 @@ public class Librarian extends User {
                 registerStudent();
                 break;
             case 3:
-                studentList();
+                printStudentList();
                 
                 break;
             case 4:
@@ -86,8 +86,8 @@ public class Librarian extends User {
     public static void registerStudent() {
         System.out.println("Please enter student's SGGS id:");
         String studentId = sc.nextLine();
-        Student student = new Student(studentId);
-        LibraryManager.addStudent(student);
+       new Student(studentId);
+        
     }
 
     //Function to assign a book to a student
@@ -117,16 +117,15 @@ public class Librarian extends User {
     
 
     //Function to display registered students list
-    public void studentList(){
-
+    public void printStudentList(){
+        System.out.println(LibraryManager.students.size());
+        System.out.println("\nRegistered students are:");
         for(Student student : LibraryManager.students){
 
+            
             if(student != null){
                 System.out.println("\n"+student.userId);
-            }else{
-                break;
             }
-            
         }
     }
     
