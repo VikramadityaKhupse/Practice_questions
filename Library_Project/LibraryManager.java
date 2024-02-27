@@ -21,7 +21,6 @@ public class LibraryManager {
         System.out.println("\n-----------------------\nAvailable Books:");
         for (Book aBook : storedBooks) {
             if (aBook != null) {
-                System.out.println("Serial Name" + "\t" + "Name" + "\t" + "Author" + "\t" + "Quantity");
                 System.out.println(aBook.serialNumber + "\t" + aBook.bookName + "\t" + aBook.author + "\t" + aBook.quantity);
             }
         }
