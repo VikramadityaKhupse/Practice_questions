@@ -1,40 +1,50 @@
 class SGGS{
 
-String name = "Vikramaditya";
-int age = 19;
+static int collegeID = 456;
+{
+	System.out.println("This is init block of SGGS "+this);
+}
 
 SGGS(){
 
-	this(19);
-	System.out.println("This is SGGS default constructor");
+
+	System.out.println("This is SGGS default constructor" + this);
 
 }
-SGGS(int x){
-
-	
-	this(20, "Pandu");
-	System.out.println("This is param constructor "+x);
+static{
+	System.out.println("This is SGGS static block "+collegeID);
 
 }
 
-SGGS(String x){
+}
+
+class College extends SGGS{
+
+static int x = 200;
+static SGGS sggs = new SGGS();
+int y = 100;
+
+{
+	System.out.println("This is init block of college "+this);
+}
+College(){
 
 
-	System.out.println("This is param string constructor "+ x);
+	System.out.println("This is college default constructor" + this);
+
+}
+static{
+	System.out.println("This is College static block "+collegeID);
 
 }
 
-SGGS(int x, String y){
-
-	this("Pandu");
-	System.out.println("This is double param string constructor "+ x + y);
-
 }
 
-public static void main(String[] args){
+public class mid_preparation{
 
-	SGGS sggs1 = new SGGS();
-
-}
+	public static void main(String[] args){
+	College clg1 = new College();
+	College clg2 = new College();
+	}
 
 }
