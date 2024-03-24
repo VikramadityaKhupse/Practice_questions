@@ -21,10 +21,11 @@ def cleandata(text):
     text = re.sub(r'&#\d*', '', text)
     text = re.sub(r'rt\s', '', text)
 
+
     return text
 
 
 df['tweet'] = df['tweet'].apply(cleandata)
 df.dropna(subset=['tweet'], inplace=True)
-df.to_csv("cleaned_dataset2.csv", index=False)
+df.to_csv("cleaned_dataset3.csv", index=False)
 print(df[59:70])
