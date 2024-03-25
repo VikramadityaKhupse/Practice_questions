@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
-public class Practical4 {
+public class Practical6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Practical4 calculator = new Practical4();
+        Practical6 calculator = new Practical6();
         
         do {
             System.out.println("Enter value of a:");
