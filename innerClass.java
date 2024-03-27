@@ -1,4 +1,4 @@
-public class Vehicle {
+class Vehicle {
     private Engine engine;
 
     public Vehicle() {
