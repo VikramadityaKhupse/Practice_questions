@@ -72,7 +72,7 @@ class RandomPrime {
         int i = 0;
         countPrimesApproach1(numbers);
         countPrimesApproach2(numbers);
-        while (i < 5) {
+        while (i < 10) {
             long starting_time1 = System.nanoTime();
             System.out.println("\nStarting time of approach1: " + starting_time1);
             System.out.println("Prime numbers: " + prime_by_approach1);
