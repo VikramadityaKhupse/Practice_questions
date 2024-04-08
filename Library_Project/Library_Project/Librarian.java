@@ -52,7 +52,7 @@ public class Librarian extends User {
                 LibraryManager.displayBooks();
                 break;
             case 8:
-                Library.main(new String[0]);
+                Library.selectUser();
                 break;
             case 0:
                 System.exit(0);

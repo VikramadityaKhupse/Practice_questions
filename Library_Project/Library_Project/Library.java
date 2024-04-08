@@ -12,7 +12,7 @@ public class Library {
     }
     
     
-    private static void selectUser() {
+    public static void selectUser() {
         Scanner sc = new Scanner(System.in);
         
         System.out.println("Are you a User or Librarian?\n1 for Student\n2 for Librarian:");
