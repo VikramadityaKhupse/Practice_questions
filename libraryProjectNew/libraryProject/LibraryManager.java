@@ -1,3 +1,6 @@
+package libraryProject;
+import java.util.ArrayList;
+
 public class LibraryManager {
     public static ArrayList<Book> storedBooks = new ArrayList<>();
     public static ArrayList<Student> students = new ArrayList<>();
