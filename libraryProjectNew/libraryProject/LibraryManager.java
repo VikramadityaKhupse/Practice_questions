@@ -9,7 +9,7 @@ public class LibraryManager {
 
 
     //Function to add a book in Library
-    public static void addBook(long serialNumber, String bookName, String author, int quantity) {
+    public static void addBook(int serialNumber, String bookName, String author, int quantity) {
         Book b1 = new Book(serialNumber, bookName, author, quantity);
         storedBooks.add(b1);
         // bookCount++;
@@ -20,7 +20,7 @@ public class LibraryManager {
         System.out.println("\n-----------------------\nAvailable Books:");
         for (Book aBook : storedBooks) {
             if (aBook != null) {
-                System.out.println(aBook.serialNumber + "\t" + aBook.bookName + "\t" + aBook.author + "\t" + aBook.quantity);
+                System.out.println(aBook.serialNumber + "\t" + aBook.name + "\t" + aBook.author + "\t" + aBook.quantity);
             }
         }
     }
@@ -33,7 +33,7 @@ public class LibraryManager {
     // }
     
     //Function to find a book by its serial number
-    public static Book findBookBySerial(long serialNumber) {
+    public static Book findBookBySerial(int serialNumber) {
         for (Book book : storedBooks) {
             if (book != null && book.serialNumber == serialNumber) {
                 return book;
@@ -45,7 +45,7 @@ public class LibraryManager {
     //Function to find a student by its serial number
     public static Student findStudentById(String studentId) {
         for (Student student : students) {
-            if (student != null && student.userId == studentId) {
+            if (student != null && student.username == studentId) {
                 return student;
             }
         }

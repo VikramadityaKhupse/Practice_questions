@@ -1,17 +1,20 @@
 package libraryProject;
 interface UserFunctions{
 
-public static void assignBook();
-public static void renewBook();
-public static void showAssignedBooks();
-public static void returnBook();
-public static void userOptions();
+public  void assignBook();
+public  void submitBook();
+public  void renewBook();
+public  void showAssignedBooks();
+public  void executeOperation();
+public  void returnBook();
+public  void userOptions();
+public  void addBookToList();
 
 
 
 }
 
-class User: UserFunctions{
+class User implements UserFunctions{
 
 
 protected String username;
@@ -19,6 +22,41 @@ protected String username;
 public User(String username){
 	this.username = username;
 
-} 
 
+	
+} 
+@Override
+  public void assignBook() {
+      System.out.println("This functionality is not available for general users.");
+  }
+
+@Override
+  public void submitBook() {
+      System.out.println("This functionality is not available for general users.");
+  }
+  @Override
+  public void renewBook() {
+      System.out.println("This functionality is not available for general users.");
+  }
+  @Override
+  public void showAssignedBooks() {
+      System.out.println("This functionality is not available for general users.");
+  }
+  @Override
+  public void executeOperation() {
+      System.out.println("This functionality is not available for general users.");
+  }
+  @Override
+  public void returnBook() {
+      System.out.println("This functionality is not available for general users.");
+  }
+  @Override
+  public void userOptions() {
+      System.out.println("This functionality is not available for general users.");
+  }
+  @Override
+  public void addBookToList() {
+      System.out.println("This functionality is not available for general users.");
+  }
+  
 }

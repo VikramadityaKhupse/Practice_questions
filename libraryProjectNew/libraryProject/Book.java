@@ -7,9 +7,9 @@ public String author;
 public int quantity;
 public int serialNumber;
 
-public Book(long serialNumber, String bookName, String author, int quantity) {
+public Book(int serialNumber, String bookName, String author, int quantity) {
         this.serialNumber = serialNumber;
-        this.bookName = bookName;
+        this.name = bookName;
         this.author = author;
         this.quantity = quantity;
     }

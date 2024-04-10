@@ -1,60 +1,59 @@
 package libraryProject;
-import java.util.ArrayList;
-import java.util.Scanner;
 import libraryProject.UserFunctions;
+import java.util.Scanner;
 
-class Student extends User implements UserFunctions{
-    
-    public static ArrayList<Book> assignedBooks = new ArrayList<>();
+public class Librarian extends User implements UserFunctions {
     static Scanner sc = new Scanner(System.in);
-    //comctructor for student object
-    Student(String username){
-    
-        super(username);
-        LibraryManager.students.add(this);
-    
-    
+
+    //COnstructor for librarian class
+    public Librarian(String userId) {
+        super(userId);
     }
-    //Function to show all available student options
+
+    //Function to show all available options for a librarian
     @Override
-    public void userOptions(){
-        
+    public void userOptions() {
         while (true) {
-            System.out.println("1)Take a book\n2)Show available books\n3)Show taken books\n4)Return a book\n5)Renew a book\n8)Change user\n Press 0 to exit:");
+            System.out.println("--------------------------");
+            System.out.println("1)Add a book\n2)Register a student\n3)See students list\n4)Assign a book\n5)Submit a book\n6)Renew a book\n7)Show all books\n8)Change user\nPress 0 to exit:");
+            System.out.println("--------------------------");
             int choice = sc.nextInt();
+            sc.nextLine();
             //executeOperation(choice);
         }
-    
-    
     }
-    
-    // //Function to execute student's operations
+
+    //Function to execute operation selected by the user
     // private void executeOperation(int choice) {
     //     switch (choice) {
     //         case 1:
-    //             assignBook();
+    //             getBookDetails();
     //             break;
     //         case 2:
-    //             LibraryManager.displayBooks();
+    //             registerStudent();
     //             break;
     //         case 3:
-    //             showAssignedBooks(assignedBooks);
+    //             printStudentList();
+                
     //             break;
     //         case 4:
-    //             System.out.println("Enter book serial number to submit: ");
-    //             long choice2 = sc.nextInt();
-    //             submitBook(choice2);
+    //             assignBook();
+                
     //             break;
     //         case 5:
-    //             renewBook();
+    //             submitBook();
+
+                
     //             break;
     //         case 6:
+    //             renewBook();
+                
     //             break;
     //         case 7:
     //             LibraryManager.displayBooks();
     //             break;
     //         case 8:
-    //             Library.main(null);
+    //             Library.selectUser();
     //             break;
     //         case 0:
     //             System.exit(0);
@@ -64,6 +63,7 @@ class Student extends User implements UserFunctions{
     //             break;
     //     }
     // }
+
     @Override
     public void assignBook() {
         // Logic for assigning a book to the student (considering availability, etc.)
