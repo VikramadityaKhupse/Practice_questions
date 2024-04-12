@@ -22,7 +22,7 @@ texts = ["0␞@USER She should ask a few native Americans what their take on thi
         "7␞@USER was literally just talking about this lol all mass shootings like that have been set ups. it’s "
         "propaganda used to divide us on major issues like gun control and terrorism␞OFF␞en"]
 unicode_char = chr(0x241E)  # Character representation of U+241E
-
+# print(unicode_char)
 splitted_text_list = [splitAtUniode(text, unicode_char) for text in texts]
 print(splitted_text_list)
 
