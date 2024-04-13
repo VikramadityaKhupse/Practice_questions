@@ -53,7 +53,7 @@ public static float pow(float base, float power){
 }
 //Function for finding square root value
 public static float sqrt(float num1){
-	float result = 1;
+	
 	float i = 0;
 	for(; i < num1/2;i++){
 		if(i*i == num1){
