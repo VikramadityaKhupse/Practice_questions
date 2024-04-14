@@ -1,5 +1,6 @@
 package Library_Project;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Library_Project.LibraryExceptions.InvalidUserInputException;
@@ -15,18 +16,23 @@ public class Library {
     
     
     public static void selectUser() {
-        
         Scanner sc = new Scanner(System.in);
         boolean validInput = false;
+        Integer choice = null; // Declare choice as null (Integer recommended)
     
         do {
             try {
                 System.out.println("Are you a User or Librarian?\n1 for Student\n2 for Librarian:");
-                int choice = sc.nextInt();
+                choice = sc.nextInt(); // Now choice stores the integer input
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid input (numbers only) ");
                 sc.nextLine(); // Consume newline character after int input
+                validInput = false;
+            }
     
+            // Check if choice has a value (not null) before using it
+            if (choice != null) {
                 validInput = true; // Input was successful
-    
                 if (choice == 1) {
                     System.out.println("Please enter your SGGS student id:");
                     String studentId = sc.nextLine();
@@ -40,15 +46,13 @@ public class Library {
                 } else {
                     System.out.println("Invalid choice!");
                 }
-    
-            } catch (InvalidUserInputException e) {
-                throw new LibraryExceptions.InvalidUserInputException("Your custom error message");
-
-                sc.nextLine(); 
-                validInput = false;
             }
-        } while (!validInput); 
+        } while (!validInput);
     
         sc.close();
+    }
+    
+    private static void askForId(int choice){
+        
     }
 }
