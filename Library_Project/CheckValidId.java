@@ -1,16 +1,16 @@
 package Library_Project;
 //Java code to return count of valid registration numbers according to SGGS format
-class Correct_reg {
+public class CheckValidId {
     public static void main(String[] args) {
         
     }
 
-    public static boolean check_reg(String[] args) {
+    public static boolean check_reg(String registration) {
         //int count = 0;
 
-        for (String registration : args) {
+        
             if (registration.length() != 10) {
-                continue;
+                return false;
             }
 
             boolean are_initial_4_digit = true;
@@ -42,8 +42,8 @@ class Correct_reg {
             }else{
             	
             	return false;}
-        }
-        return false;
+        
+
         }
 
         

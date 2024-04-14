@@ -15,5 +15,11 @@ public class LibraryExceptions extends Exception {
 
     
     }
+    public static class InvalidRegistrationID extends LibraryExceptions{
+
+        public InvalidRegistrationID(String message){
+            super(message);
+        }
+    }
     
 }
