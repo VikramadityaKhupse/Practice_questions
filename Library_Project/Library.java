@@ -57,8 +57,8 @@ public class Library {
             sc.close();
             return id;
         }else{
-            sc.close();
-            throw new InvalidRelationIdException("Please enter valid registration ID!");
+            
+            System.out.println("Please enter valid registration ID!");
         }
         sc.close();
         return null;
