@@ -21,8 +21,9 @@ public class Library {
             try {
                 System.out.println("Are you a User or Librarian?\n1 for Student\n2 for Librarian:");
                 choice = sc.nextInt(); 
-                sc.nextLine();
+                
             } catch (InputMismatchException e) {
+                sc.nextLine();
                 System.out.println("Please enter a valid input (numbers only) ");
                 validInput = false;
             }
@@ -58,6 +59,7 @@ public class Library {
         }else{
             
             System.out.println("Please enter valid registration ID!");
+            askForId();
         }
         sc.close();
         return null;
