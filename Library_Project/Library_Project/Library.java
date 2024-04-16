@@ -15,20 +15,21 @@ public class Library {
     public static void selectUser() {
         Scanner sc = new Scanner(System.in);
         boolean validInput = false;
-        Integer choice = null; 
+        int choice = 0; 
     
         do {
             try {
                 System.out.println("Are you a User or Librarian?\n1 for Student\n2 for Librarian:");
-                choice = sc.nextInt(); 
+                choice = sc.nextInt();
+                sc.nextLine(); 
                 
             } catch (InputMismatchException e) {
-                sc.nextLine();
+                
                 System.out.println("Please enter a valid input (numbers only) ");
                 validInput = false;
             }
     
-            if (choice != null) {
+            if (choice != 0) {
                 validInput = true; 
                 if (choice == 1) {
                     
@@ -51,7 +52,7 @@ public class Library {
     
     public static String askForId(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter your SGGS student id:");
+        System.out.println("Please enter your SGGS id:");
         String id = sc.nextLine();
         if(CheckValidId.check_reg(id)){
             sc.close();

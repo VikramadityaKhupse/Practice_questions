@@ -1,9 +1,7 @@
 package Library_Project;
 //Java code to return count of valid registration numbers according to SGGS format
 public class CheckValidId {
-    public static void main(String[] args) {
-        
-    }
+    
 
     public static boolean check_reg(String registration) {
         //int count = 0;

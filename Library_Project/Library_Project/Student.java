@@ -6,7 +6,7 @@ public class Student extends User {
     static Book[] tookBook = new Book[5];
     static Scanner sc = new Scanner(System.in);
 
-    //comctructor for student object
+    //constructor for student object
     public Student(String userId) {
         super(userId);
         LibraryManager.students.add(this);
@@ -14,9 +14,11 @@ public class Student extends User {
 
     //Function to show all available student options
     public void studentOptions() {
+    int choice;
         while (true) {
             System.out.println("1)Take a book\n2)Show available books\n3)Show taken books\n4)Return a book\n5)Renew a book\n8)Change user\n Press 0 to exit:");
-            int choice = sc.nextInt();
+            choice = sc.nextInt();
+            sc.nextLine();
             executeOperation(choice);
         }
     }
