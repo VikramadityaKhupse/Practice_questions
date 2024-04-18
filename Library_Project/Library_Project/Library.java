@@ -22,49 +22,55 @@ public class Library {
                 System.out.println("Are you a User or Librarian?\n1 for Student\n2 for Librarian:");
                 choice = sc.nextInt();
                 sc.nextLine(); 
+
+                if (choice != 0) {
+                    validInput = true; 
+                    if (choice == 1) {
+                        
+                        String studentId = askForId();
+                        Student student = new Student(studentId);
+                        student.studentOptions();
+                    } else if (choice == 2) {
+                        String librarianId = askForId();
+                        Librarian librarian = new Librarian(librarianId);
+                        librarian.librarianOptions();
+                    } else {
+                        System.out.println("Invalid choice!");
+                        validInput = false;
+                    }
+                }
                 
             } catch (InputMismatchException e) {
                 
                 System.out.println("Please enter a valid input (numbers only) ");
                 validInput = false;
             }
-    
-            if (choice != 0) {
-                validInput = true; 
-                if (choice == 1) {
-                    
-                    String studentId = askForId();
-                    Student student = new Student(studentId);
-                    student.studentOptions();
-                } else if (choice == 2) {
-                    String librarianId = askForId();
-                    Librarian librarian = new Librarian(librarianId);
-                    librarian.librarianOptions();
-                } else {
-                    System.out.println("Invalid choice!");
-                    validInput = false;
-                }
+            catch (LibraryExceptions.InvalidRegistrationIDError e) {
+                
+                System.out.println(e.getMessage());
+                validInput = false;
             }
+    
+            
         } while (!validInput);
     
         sc.close();
     }
     
-    public static String askForId(){
-        Scanner sc = new Scanner(System.in);
+   public static String askForId() throws LibraryExceptions.InvalidRegistrationIDError {
+    Scanner sc1 = new Scanner(System.in);
+    String id;
+    do {
         System.out.println("Please enter your SGGS id:");
-        String id = sc.nextLine();
-        if(CheckValidId.check_reg(id)){
-            sc.close();
-            return id;
-        }else{
+        id = sc1.nextLine();
+        if (CheckValidId.check_reg(id)) {
             
-            System.out.println("Please enter valid registration ID!");
-            askForId();
+            return id;
+        } else {
+            throw new LibraryExceptions.InvalidRegistrationIDError("Please enter valid registration ID");
         }
-        sc.close();
-        return null;
+    } while (true);
+}
 
-    }
     
 }

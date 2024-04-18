@@ -14,11 +14,11 @@ public class Student extends User {
 
     //Function to show all available student options
     public void studentOptions() {
-    int choice;
+	int choice;
         while (true) {
             System.out.println("1)Take a book\n2)Show available books\n3)Show taken books\n4)Return a book\n5)Renew a book\n8)Change user\n Press 0 to exit:");
+
             choice = sc.nextInt();
-            sc.nextLine();
             executeOperation(choice);
         }
     }
