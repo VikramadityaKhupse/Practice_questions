@@ -67,6 +67,7 @@ public class Library {
             
             return id;
         } else {
+            sc1.close();
             throw new LibraryExceptions.InvalidRegistrationIDError("Please enter valid registration ID");
         }
     } while (true);
