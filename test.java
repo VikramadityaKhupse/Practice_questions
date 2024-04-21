@@ -1,6 +1,6 @@
 class Question {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
         String str1 = "Mid";
         String str2 = new String("Term");
         String str3 = "Mid";
@@ -15,9 +15,8 @@ class Question {
         System.out.println(str3.getClass().getName() + Integer.toHexString(str3.hashCode()) );
         System.out.println(str4.getClass().getName() + Integer.toHexString(str4.hashCode()) );
         System.out.println(str5.getClass().getName() + Integer.toHexString(str5.hashCode()) );}
-        catch(InterruptedException e){
-
-        
+        finally{
+            
         }
     
     
