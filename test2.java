@@ -6,6 +6,7 @@ public static void main(String [] args){
 
 	System.out.println("\n"+tan(45));
 	System.out.println("\n"+cot(45));
+	
 
 }
 //Functions for addition
