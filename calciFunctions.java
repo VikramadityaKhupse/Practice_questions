@@ -1,4 +1,4 @@
-class Functions{
+public class CalciFunctions{
 
 public static void main(String [] args){
 	
