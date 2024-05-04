@@ -1,9 +1,14 @@
 class Practice{
 
 
-public static void main(String [] args) throws InterruptedException{
+public static void main(String [] args) {
 	
-	Thread.sleep(1234);
+	try{
+	System.out.println(args[0]);
+}catch(ArrayIndexOutOfBoundsException e){
+	
+}
+
 
 
 }
