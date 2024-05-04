@@ -1,30 +1,10 @@
 class Practice{
 
 
-public static void main(String [] args){
+public static void main(String [] args) throws InterruptedException{
 	
-	try{
-	System.out.println(args[0]);
-	}
-	// catch(Throwable e){
-	// 	System.out.println("Inside catch");
-	
-	
-	// }
-	catch(Exception e){
-		System.out.println("Inside Throwable catch");
-	
-	
-	}
-	catch(ArrayIndexOutOfBoundsException e){
-		System.out.println("Inside Throwable catch");
-	
-	
-	}finally{
-	
-	System.out.println("Inside Finally");
-	
-	}
+	Thread.sleep(1234);
+
 
 }
 }
