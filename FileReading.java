@@ -1,26 +1,21 @@
-import java.io.FileNotFoundException;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 public class FileReading {
 
     public static void main(String[] args) {
-        int i = 0;
-        try{
-        FileReader fr = new FileReader("fun.java");
-        while(i < 20){
-            System.out.println(Integer.toString(fr.read()));
-            i++;
-        }
-        
-        fr.close();
-        }
-        catch(FileNotFoundException e){
+        try {
+            File file = new File("fun.java");
+            FileReader fileReader = new FileReader(file);
 
+            int character;
+            while ((character = fileReader.read()) != -1) {
+                System.out.print((char) character);
+            }
 
-        }
-        catch(IOException e){
-
-
+            fileReader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
 
     }
