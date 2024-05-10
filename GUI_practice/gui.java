@@ -1,36 +1,66 @@
 import javax.swing.*;
 import java.io.File;
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 
 class Gui extends JFrame{
- JLabel num1JLabel, num2JLabel, resultJLabel;
- JTextField num1TextField, num2TextField, resulTextField;
- JButton addButton;
+ JLabel inputFieldLabel, num2JLabel, resultJLabel;
+ JTextField inputTextField, num2TextField, resulTextField;
+ JButton addButton, subButton, divButton, multiButton, factButton, rightParenthesisButton, leftParenthesisButton, enterButton;
+ JButton backSpaceButton;
 
  public Gui(){
+    setTitle("Calculator");
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    num1JLabel = new JLabel("NUM1");
-    num2JLabel = new JLabel("NUM2");
+    //Labels
+    inputFieldLabel = new JLabel("Input");
     resultJLabel = new JLabel("Result");
-    num1TextField = new JTextField(20);
-    num2TextField = new JTextField(20);
-    resulTextField = new JTextField("21");
+
+    //TextFields
     
-    addButton = new JButton("ADD");
-    setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
-    add(num1JLabel); add(num1TextField);
-    add(num1JLabel); add(num2TextField);
-    add(addButton);
-    add(resulTextField);
+    inputTextField = new JTextField(40);
+    resulTextField = new JTextField("21");
+
+    //Buttons
+    addButton = new JButton("+");
+    subButton = new JButton("-");
+    divButton = new JButton("/");
+    multiButton = new JButton("*");
+    leftParenthesisButton = new JButton("(");
+    rightParenthesisButton = new JButton(")");
+    backSpaceButton = new JButton("<=");
+    enterButton = new JButton("=");
+
+    //setting layout
+    setLayout(new FlowLayout(FlowLayout.LEFT, 40, 40));
+    add(inputFieldLabel); add(inputTextField); add(resulTextField);
+    add(addButton); add(subButton); add(divButton); add(multiButton); add(enterButton);
+    add(leftParenthesisButton); add(rightParenthesisButton); add(enterButton);
+    
     setSize(getPreferredSize());
-    setVisible(rootPaneCheckingEnabled);
+    setVisible(true);
 
 
     
 
  }
+ public void actionPerformed(ActionEvent ae){
+		int num1 = Integer.parseInt(inputTextField.getText());
+		int num2 = Integer.parseInt(num2TextField.getText());
+		int result = 0;
+		if (ae.getSource() == addButton){
+			result = num1 + num2;
+		}
+		else if (ae.getSource() == subButton){
+			result = num1 - num2;
+		}
+		resulTextField.setText(result+"");
+		
+	}
     
 
 public static void main(String[] args)throws Exception{
