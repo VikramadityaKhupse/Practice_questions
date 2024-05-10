@@ -1,3 +1,4 @@
+package Calculator;
 import java.util.Stack;
 
 public class InfixToPostfix {
@@ -22,7 +23,7 @@ public class InfixToPostfix {
 	}
 
 	// The main function to convert infix expression to postfix expression
-	static void infixToPostfix(String s) {
+	static String infixToPostfix(String s) {
 		StringBuilder result = new StringBuilder();
 		Stack<Character> stack = new Stack<>();
 
@@ -61,7 +62,7 @@ public class InfixToPostfix {
 			result.append(stack.pop());
 		}
 
-		System.out.println(result);
+		return result.toString();
 	}
 
 	// Driver code

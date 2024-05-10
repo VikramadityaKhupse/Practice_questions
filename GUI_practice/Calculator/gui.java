@@ -1,4 +1,4 @@
-package GUI_practice;
+package Calculator;
 import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
@@ -23,7 +23,7 @@ class Gui extends JFrame implements ActionListener{
     //TextFields
     
     inputTextField = new JTextField(40);
-    resulTextField = new JTextField("21");
+    resulTextField = new JTextField();
 
     //Buttons
     addButton = new JButton("+");
@@ -59,12 +59,10 @@ class Gui extends JFrame implements ActionListener{
  public void actionPerformed(ActionEvent ae){
    if(ae.getSource() == enterButton){
       String infixExpression = inputTextField.getText();
-      
+      String infixToPostfix = InfixToPostfix.infixToPostfix(infixExpression);
+      resulTextField.setText(PostfixEvaluation.evaluatePostfix(infixToPostfix)+"");
    }
 		
-		String result = "";
-		
-		resulTextField.setText(result+"");
 		
 	}
     
