@@ -1,16 +1,16 @@
+package GUI_practice;
 import javax.swing.*;
-import java.io.File;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 
 
-class Gui extends JFrame{
+class Gui extends JFrame implements ActionListener{
  JLabel inputFieldLabel, num2JLabel, resultJLabel;
  JTextField inputTextField, num2TextField, resulTextField;
  JButton addButton, subButton, divButton, multiButton, factButton, rightParenthesisButton, leftParenthesisButton, enterButton;
- JButton backSpaceButton;
+ JButton backSpaceButton, circumFleXButton;
 
  public Gui(){
     setTitle("Calculator");
@@ -34,30 +34,36 @@ class Gui extends JFrame{
     rightParenthesisButton = new JButton(")");
     backSpaceButton = new JButton("<=");
     enterButton = new JButton("=");
+    enterButton.addActionListener(this);
+    circumFleXButton = new JButton("^"); //not added in gui
 
     //setting layout
     setLayout(new FlowLayout(FlowLayout.LEFT, 40, 40));
-    add(inputFieldLabel); add(inputTextField); add(resulTextField);
-    add(addButton); add(subButton); add(divButton); add(multiButton); add(enterButton);
+    add(inputFieldLabel); add(inputTextField); add(enterButton); 
+    
+    add(resulTextField);
+    add(addButton); add(subButton); add(divButton); add(multiButton); 
+    add(enterButton);
     add(leftParenthesisButton); add(rightParenthesisButton); add(enterButton);
     
     setSize(getPreferredSize());
     setVisible(true);
+
+    //setting up listeners
+    
 
 
     
 
  }
  public void actionPerformed(ActionEvent ae){
-		int num1 = Integer.parseInt(inputTextField.getText());
-		int num2 = Integer.parseInt(num2TextField.getText());
-		int result = 0;
-		if (ae.getSource() == addButton){
-			result = num1 + num2;
-		}
-		else if (ae.getSource() == subButton){
-			result = num1 - num2;
-		}
+   if(ae.getSource() == enterButton){
+      String infixExpression = inputTextField.getText();
+      
+   }
+		
+		String result = "";
+		
 		resulTextField.setText(result+"");
 		
 	}
