@@ -1,17 +1,22 @@
-class Outer {
-    private int outerVar = 10;
+interface Class{
 
-    class Inner {
-        void display() {
-            System.out.println("OuterVar: " + outerVar);
-        }
-    }
+ public void aana();
+ public void jaana();
 }
 
-public class memberInnerClass {
+class Outer implements Class{
+    private int outerVar = 10;
+    
+    public void aana(){
+    }
+    
+    
+
+    
+
+
+
     public static void main(String[] args) {
-        Outer outer = new Outer();
-        Outer.Inner inner = outer.new Inner();
-        inner.display(); // Output: OuterVar: 10
+        
     }
 }
