@@ -1,94 +1,66 @@
 package Calculator;
+
 import javax.swing.*;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+class Gui extends JFrame implements ActionListener {
+    JLabel inputFieldLabel, resultJLabel;
+    JTextField inputTextField, resulTextField;
+    JButton addButton, subButton, divButton, multiButton, enterButton, leftParenthesisButton, rightParenthesisButton;
 
+    public Gui() {
+        setTitle("Calculator");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-class Gui extends JFrame implements ActionListener{
- JLabel inputFieldLabel, num2JLabel, resultJLabel;
- JTextField inputTextField, num2TextField, resulTextField;
- JButton addButton, subButton, divButton, multiButton, factButton, rightParenthesisButton, leftParenthesisButton, enterButton;
- JButton backSpaceButton, circumFleXButton;
+        // Labels
+        inputFieldLabel = new JLabel("Input");
+        resultJLabel = new JLabel("Result");
 
- public Gui(){
-    setTitle("Calculator");
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+        // TextFields
+        inputTextField = new JTextField(40);
+        resulTextField = new JTextField(40);
+        resulTextField.setEditable(false);
 
-    //Labels
-    inputFieldLabel = new JLabel("Input");
-    resultJLabel = new JLabel("Result");
+        // Buttons
+        addButton = new JButton("+");
+        subButton = new JButton("-");
+        divButton = new JButton("/");
+        multiButton = new JButton("*");
+        leftParenthesisButton = new JButton("(");
+        rightParenthesisButton = new JButton(")");
+        enterButton = new JButton("=");
+        enterButton.addActionListener(this);
 
-    //TextFields
-    
-    inputTextField = new JTextField(40);
-    resulTextField = new JTextField();
+        // Setting layout
+        setLayout(new FlowLayout(FlowLayout.LEFT, 20, 20));
+        add(inputFieldLabel);
+        add(inputTextField);
+        add(enterButton);
+        add(resultJLabel);
+        add(resulTextField);
+        add(addButton);
+        add(subButton);
+        add(divButton);
+        add(multiButton);
+        add(leftParenthesisButton);
+        add(rightParenthesisButton);
 
-    //Buttons
-    addButton = new JButton("+");
-    subButton = new JButton("-");
-    divButton = new JButton("/");
-    multiButton = new JButton("*");
-    leftParenthesisButton = new JButton("(");
-    rightParenthesisButton = new JButton(")");
-    backSpaceButton = new JButton("<=");
-    enterButton = new JButton("=");
-    enterButton.addActionListener(this);
-    circumFleXButton = new JButton("^"); //not added in gui
+        // Set preferred size and visibility
+        pack();
+        setVisible(true);
+    }
 
-    //setting layout
-    setLayout(new FlowLayout(FlowLayout.LEFT, 40, 40));
-    add(inputFieldLabel); add(inputTextField); add(enterButton); 
-    
-    add(resulTextField);
-    add(addButton); add(subButton); add(divButton); add(multiButton); 
-    add(enterButton);
-    add(leftParenthesisButton); add(rightParenthesisButton); add(enterButton);
-    
-    setSize(getPreferredSize());
-    setVisible(true);
+    public void actionPerformed(ActionEvent ae) {
+        if (ae.getSource() == enterButton) {
+            String infixExpression = inputTextField.getText();
+            String infixToPostfix = InfixToPostfix.infixToPostfix(infixExpression);
+            resulTextField.setText(PostfixEvaluation.evaluatePostfix(infixToPostfix) + "");
+        }
+    }
 
-    //setting up listeners
-    
-
-
-    
-
- }
- public void actionPerformed(ActionEvent ae){
-   if(ae.getSource() == enterButton){
-      String infixExpression = inputTextField.getText();
-      String infixToPostfix = InfixToPostfix.infixToPostfix(infixExpression);
-      resulTextField.setText(PostfixEvaluation.evaluatePostfix(infixToPostfix)+"");
-   }
-		
-		
-	}
-    
-
-public static void main(String[] args)throws Exception{
-
-// File file1 = new File("Practice.txt");
-// int input = JOptionPane.showConfirmDialog(null, "Want to create a file?", "Confirm", JOptionPane.YES_NO_OPTION);
-
-// if(input == 0){
-
-// file1.createNewFile();
-// JOptionPane.showMessageDialog(null,"File " + file1.getName() +" is created!","", JOptionPane.INFORMATION_MESSAGE);
-// }else{
-
-// JOptionPane.showMessageDialog(null,"File is not created","", JOptionPane.INFORMATION_MESSAGE);
-
-// }
-
-Gui gui1 = new Gui();
-//gui1.setVisible(isDefaultLookAndFeelDecorated());
-
-
-
-
-}
-
-
+    public static void main(String[] args) {
+        new Gui();
+    }
 }
