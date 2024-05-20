@@ -9,6 +9,7 @@ public class FileReading {
             FileReader fileReader = new FileReader(file);
 
             int character;
+            
             while ((character = fileReader.read()) != -1) {
                 System.out.print((char) character);
             }
@@ -17,6 +18,7 @@ public class FileReading {
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
+
 
     }
     

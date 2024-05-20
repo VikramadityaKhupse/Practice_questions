@@ -1,6 +1,5 @@
 package END_TERM;
 
-import javax.sound.midi.Track;
 
 /**
  * InnerlibraryPratice
@@ -93,6 +92,8 @@ class Librarian extends libraryPractice implements InnerlibraryPratice {
         Book newBook = new Book(name, author, id, count);
         bookArray[totalBooksCount] = newBook;
         totalBooksCount++;
+
+
     }
 
     public void showBooks() {
