@@ -15,6 +15,7 @@ public class Filewriter {
         File writeFile = new File("File.txt");
         File readFile = new File("fun.java");
 
+        //Always use or create filereader and filewriter object in try catch block as it throws IOException
         try{
         FileWriter fw = new FileWriter(writeFile);
         FileReader fr = new FileReader(readFile);
