@@ -6,7 +6,7 @@ public class GetFilesList {
     static int foldersCount;
     public static void main(String[] args) {
         // Specify the directory path
-        String directoryPath = "path/to/your/directory";
+        String directoryPath = "/home/vikramaditya/Desktop/Practice";
         getFilesFolder(directoryPath);
         System.out.println(filesCount);
         System.out.println(foldersCount);
@@ -21,12 +21,14 @@ public class GetFilesList {
         if(filesList != null){
 
             for (File file : filesList){
-                if(file.isFile()){
+                //if want to get only .java files, use "file.getName().endsWith(".java")" in if condition"
+                if(file.isFile() ){
+
                     filesCount++;
-                    System.out.println("File" + file.getName());
+                    System.out.println("File: " + file.getName());
                 }else if(file.isDirectory()){
                     foldersCount++;
-                    System.out.println("Folder" + file.getName());
+                    System.out.println("Folder: " + file.getName());
                 }
 
 
