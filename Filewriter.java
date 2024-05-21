@@ -12,6 +12,7 @@ public class Filewriter {
         
         int character;
 
+        //Use ur own file names
         File writeFile = new File("File.txt");
         File readFile = new File("fun.java");
 

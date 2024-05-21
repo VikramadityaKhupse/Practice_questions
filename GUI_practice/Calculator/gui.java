@@ -10,7 +10,7 @@ class Gui extends JFrame implements ActionListener {
     JTextField inputTextField, resulTextField;
     JButton addButton, subButton, divButton, multiButton, enterButton, leftParenthesisButton, rightParenthesisButton;
 
-    public Gui() {
+    Gui() {
         setTitle("Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
