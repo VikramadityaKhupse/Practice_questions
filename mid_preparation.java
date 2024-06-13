@@ -1,50 +1,47 @@
-class SGGS{
+class College{
 
-static int collegeID = 456;
-{
-	System.out.println("This is init block of SGGS "+this);
-}
+	static int collegeID = 30;
 
-SGGS(){
-
-
-	System.out.println("This is SGGS default constructor" + this);
-
-}
-static{
-	System.out.println("This is SGGS static block "+collegeID);
-
-}
-
-}
-
-class College extends SGGS{
-
-static int x = 200;
-static SGGS sggs = new SGGS();
-int y = 100;
-
-{
-	System.out.println("This is init block of college "+this);
-}
-College(){
-
-
-	System.out.println("This is college default constructor" + this);
-
-}
-static{
-	System.out.println("This is College static block "+collegeID);
-
-}
-
-}
-
-public class mid_preparation{
-
-	public static void main(String[] args){
-	College clg1 = new College();
-	College clg2 = new College();
+	{
+		System.out.println("Inside college class init block");
 	}
 
+	static{
+
+		System.out.println("College static");
+	}
+	College(){
+
+		System.out.println("College constructor");
+	}
+}
+
+class SGGS extends College{
+
+	static int x = 45;
+	static College sggs = new College();
+	int y = 2024;
+
+	{
+		System.out.println("SGGS init");
+
+
+	}
+
+	SGGS(){
+
+		System.out.println("SGGS constructor");
+	}
+
+	public static void main(String[] args) {
+		System.out.println("MAIN");
+		SGGS sggs1 = new SGGS();
+		System.out.println("SGGS1");
+		
+
+	}
+	static{
+
+		System.out.println("SGGS static");
+	}
 }
